@@ -41,6 +41,7 @@ Once the dependencies are installed, let's code to ship our first wallet connect
 
 **File:** `./src/main.tsx`
 ```javascript
+//Import RainbowKit, wagmi, and ethers etc
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -52,6 +53,13 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from 'wagmi/providers/public';
 import { ChakraProvider } from '@chakra-ui/react';
 
+
+//Configure desired chains and generate the required connectors. You will also need to setup a wagmi client.
+
+//configureChains function allows you to configure your chains with node provider like Ankr. 
+//This means you don't need to worry about defining RPC URLs and chain configuration in your connector or provider. 
+//This is managed internally by wagmi.
+//ConfigureChains accepts an array of chains and an array of providers.
 const { chains, provider } = configureChains(
   [chain.goerli], // you can add more chains here
   [
@@ -78,6 +86,7 @@ const wagmiClient = createClient({
   provider,
 });
 
+//Wrap your application with RainbowKitProvider, Chakra-UI and WagmiConfig.
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ChakraProvider>
