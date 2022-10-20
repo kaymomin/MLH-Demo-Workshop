@@ -105,6 +105,8 @@ Import ConnectButton and add the component to your **App.tsx** file under `src` 
 
 **File:** `./src/App.tsx`
 ```typescript
+//In your app, import and render the ConnectButton component.
+
 import { Container } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
